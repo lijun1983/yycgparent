@@ -14,5 +14,12 @@
         <module>springmybatis</module>
     </modules>
 
-
+    <dependencies>
+        <!-- 依赖技术架构模块1 -->
+        <dependency>
+            <groupId>yycg</groupId>
+            <artifactId>yycgproject</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
