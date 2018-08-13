@@ -9,10 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yycgproject</artifactId>
-    <packaging>war</packaging>
+    <artifactId>yycgutil</artifactId>
 
-    <name>yycgproject Maven Webapp</name>
+    <name>yycgutil</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -23,97 +22,63 @@
     </properties>
 
     <dependencies>
-        <!-- 依赖技术架构模块 -->
-        <dependency>
-            <groupId>yycg</groupId>
-            <artifactId>springmybatis</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!-- 工具类 -->
-        <dependency>
-            <groupId>yycg</groupId>
-            <artifactId>yycgutil</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
-
-        <!-- dbcp -->
+        <!-- 汉字拼音组件 -->
         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.2.2</version>
+            <groupId>net.sourceforge</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.0</version>
         </dependency>
-        <!-- ojdbc14 -->
-        <!--<dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.1.0</version>
-            <scope>runtime</scope>
-        </dependency>-->
+        <!-- office文档组件 -->
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>11.2.0.1.0</version>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
         </dependency>
-        <!-- servlet-api 编译时用，发布后不用 -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!-- json转换 -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+        <!-- 加解密 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+            <version>1.46</version>
+        </dependency>
+        <!-- java servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-        <!-- jstl标签 -->
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <!-- 文件上传 -->
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <!-- commons io -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
-        </dependency>
-        <!-- json转换 ,springmvc 返回json格式必须加入 -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.11</version>
-        </dependency>
-        <!-- dwr -->
-        <dependency>
-            <groupId>org.directwebremoting</groupId>
-            <artifactId>dwr</artifactId>
-            <version>3.0.M1</version>
-        </dependency>
     </dependencies>
 
     <build>
-        <finalName>yycgproject</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
-                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>3.0.2</version>
@@ -127,8 +92,8 @@
                     <version>2.20.1</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.0</version>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-install-plugin</artifactId>
