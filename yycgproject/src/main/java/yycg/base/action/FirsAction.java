@@ -16,7 +16,7 @@ public class FirsAction
   @Autowired
   private UserService userService;
 
-  //1.TODO首页
+  //1.TODO：首页ok
   @RequestMapping("/first")
   public String first(Model model)throws Exception{
     Sysuser sysuser = userService.findSysuserById("92");
