@@ -18,6 +18,21 @@ public class UserServiceImpl implements UserService
   @Override
   public Sysuser findSysuserById(String id) throws Exception
   {
+    /**
+
+     *@描述
+
+     *@参数  [id]
+
+     *@返回值  yycg.base.pojo.po.Sysuser
+
+     *@创建人  lijun
+
+     *@创建时间  2018/8/18 0018
+
+     *@修改人和其它信息
+
+     */
     return sysuserMapper.selectByPrimaryKey(id);
   }
 }

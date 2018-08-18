@@ -19,7 +19,6 @@ public class SysuserMapperTest extends TestCase
 
 
 
-
   public void setUp() throws Exception
   {
     applicationContext = new ClassPathXmlApplicationContext(new String[]{"spring/applicationContext.xml","spring/applicationContext-base-dao.xml"});

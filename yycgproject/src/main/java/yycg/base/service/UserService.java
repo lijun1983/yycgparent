@@ -8,6 +8,7 @@ import yycg.base.pojo.po.Sysuser;
 public interface UserService
 {
   //依据 ID 查询信息
+
   public Sysuser findSysuserById(String id) throws Exception;
 }
 

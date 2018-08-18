@@ -16,15 +16,46 @@ public class FirsAction
   @Autowired
   private UserService userService;
 
-  //1.TODO：首页ok
+
+  /**
+
+   *@描述 1.TODO：首页ok
+
+   *@参数  [model]
+
+   *@返回值  java.lang.String
+
+   *@创建人  lijun
+
+   *@创建时间  2018/8/18 0018
+
+   *@修改人和其它信息
+
+   */
   @RequestMapping("/first")
   public String first(Model model)throws Exception{
+
     Sysuser sysuser = userService.findSysuserById("92");
     //将sysuser 传页面
     model.addAttribute("sysuser",sysuser);
     return "/base/first";
   }
-   //2.TODO:欢迎页面（即首页右侧）
+
+  /**
+
+   *@描述 2.TODO:欢迎页面（即首页右侧）
+
+   *@参数  []
+
+   *@返回值  java.lang.String
+
+   *@创建人  lijun
+
+   *@创建时间  2018/8/18 0018
+
+   *@修改人和其它信息
+
+   */
   @RequestMapping("/welcome")
   public String welcome()
   {
