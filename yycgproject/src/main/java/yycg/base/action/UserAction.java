@@ -4,7 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import yycg.base.pojo.process.result.DataGridResultInfo;
+import yycg.base.pojo.vo.SysuserCustom;
+import yycg.base.pojo.vo.SysuserQueryVo;
 import yycg.base.service.UserService;
+
+import java.util.List;
 
 
 @Controller
@@ -35,7 +41,17 @@ public class UserAction
 	public String queryuser(Model model)throws Exception{
 		return "/base/user/queryuser";
 	}
+  @RequestMapping("/queryuser_result")
+  public @ResponseBody
+  DataGridResultInfo queryuser_result(SysuserQueryVo sysuserQueryVo) throws Exception{
 
-
+    List<SysuserCustom> rows = userService.findSysuserList(sysuserQueryVo);
+    DataGridResultInfo dataGridResultInfo = new DataGridResultInfo();
+    //填充 total
+    dataGridResultInfo.setTotal(rows.size());
+    //填充  rows
+    dataGridResultInfo.setRows(rows);
+    return dataGridResultInfo;
+  }
 
 }
