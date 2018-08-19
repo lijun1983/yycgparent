@@ -28,7 +28,7 @@ public class UserAction
 
 	 *@创建时间  2018/8/19 0019
 
-	 *@修改人和其它信息
+	 *@修改人和其它信息  用户管理 模块
 
 	 */
 	@RequestMapping("/queryuser")
