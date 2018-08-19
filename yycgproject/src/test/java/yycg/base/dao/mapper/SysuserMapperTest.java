@@ -4,10 +4,6 @@ import junit.framework.TestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import yycg.base.pojo.po.Sysuser;
-import yycg.base.pojo.po.SysuserExample;
-import yycg.util.UUIDBuild;
-
-import java.util.List;
 
 /**
  * Created by Administrator on 2018/8/14 0014.
@@ -30,24 +26,24 @@ public class SysuserMapperTest extends TestCase
   public void testInsert() throws Exception
   {
     //1.TODO:插入信息
-      Sysuser sysuser = new Sysuser();
+     /* Sysuser sysuser = new Sysuser();
       sysuser.setId(UUIDBuild.getUUID());
       sysuser.setUserid("");
       sysuser.setUsername("");
-      sysuserMapper.insert(sysuser);
+      sysuserMapper.insert(sysuser);*/
   }
 
 
 
   public void testSelectByExample() throws Exception
   {
-    SysuserExample sysuserExample = new SysuserExample();
+    /*SysuserExample sysuserExample = new SysuserExample();
     SysuserExample.Criteria criteria = sysuserExample.createCriteria();
     //2.TODO:自定义字段(关键字)查询条件
     criteria.andUsernameEqualTo("城关乡西史村卫生室");
     criteria.andGroupidEqualTo("3");
     List<Sysuser> list = sysuserMapper.selectByExample(sysuserExample);
-    System.out.println(list.get(0));
+    System.out.println(list.get(0));*/
   }
 
   public void testSelectByPrimaryKey() throws Exception
