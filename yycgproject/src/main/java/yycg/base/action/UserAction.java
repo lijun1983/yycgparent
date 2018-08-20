@@ -72,22 +72,23 @@ public class UserAction
 	 *@修改人和其它信息
 
 	 */
+
 	@RequestMapping("/queryuser_result")
-	public @ResponseBody
-	DataGridResultInfo queryuser_result(SysuserQueryVo sysuserQueryVo, int page, int rows)throws Exception{
+	public @ResponseBody DataGridResultInfo queryuser_result(SysuserQueryVo sysuserQueryVo, int page, int rows)throws Exception{
+
 
 		//非空校验
 		sysuserQueryVo = sysuserQueryVo!=null?sysuserQueryVo:new SysuserQueryVo();
 
-		//查询列表的总数
+		//查询列表的总数(统计)
 		int total = userService.findSysuserCount(sysuserQueryVo);
 
 		PageQuery pageQuery = new PageQuery();
-		pageQuery.setPageParams(total, rows, page);
+		pageQuery.setPageParams(total, rows, page);//格式化数据
 
 		sysuserQueryVo.setPageQuery(pageQuery);
 
-		//分页查询，向sysuserQueryVo中传入pageQuery
+		//分页列表查询，向sysuserQueryVo中传入    格式化数据 pageQuery
 		List<SysuserCustom> list = userService.findSysuserList(sysuserQueryVo);
 
 		DataGridResultInfo dataGridResultInfo = new DataGridResultInfo();
