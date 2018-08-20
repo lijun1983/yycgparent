@@ -20,8 +20,6 @@ public interface SysuserMapperCustom
 
   public List<SysuserCustom> findSysuserList(SysuserQueryVo sysuserQueryVo) throws Exception;
 
-
-
-
   //查询总数
+  public int findSysuserCount(SysuserQueryVo sysuserQueryVo) throws Exception;
 }

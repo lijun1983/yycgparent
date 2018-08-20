@@ -1,25 +1,39 @@
 package yycg.base.pojo.vo;
 
 /**
- * @Version : 1.0
- * @ClassName :本类名称 SysuserQueryVo
- * @Auther : 创建人 Lijun
- * @Date : 创建时间 2018/8/19 0019 19:18
- * @Description: 描述 null
- * @TODO : 标注注释 null
- * Created by IntelliJ IDEA
+ * 
+ * <p>Title: SysuserQueryVo</p>
+ * <p>Description:包装类，用于页面向action传递参数，将数据传到mybatis </p>
+ * <p>Company: www.itcast.com</p> 
+ * @author
+ * @date	2014年11月26日上午10:32:50
+ * @version 1.0
  */
-public class SysuserQueryVo
-{
-   private SysuserCustom sysuserCustom;
+public class SysuserQueryVo {
+	
+	//分页参数
+	private PageQuery pageQuery;
+	//用户的查询条件
+	private SysuserCustom sysuserCustom;
+	//可以扩展多个属性
+	//....
 
-  public SysuserCustom getSysuserCustom()
-  {
-    return sysuserCustom;
-  }
+	public SysuserCustom getSysuserCustom() {
+		return sysuserCustom;
+	}
 
-  public void setSysuserCustom(SysuserCustom sysuserCustom)
-  {
-    this.sysuserCustom = sysuserCustom;
-  }
+	public void setSysuserCustom(SysuserCustom sysuserCustom) {
+		this.sysuserCustom = sysuserCustom;
+	}
+
+	public PageQuery getPageQuery() {
+		return pageQuery;
+	}
+
+	public void setPageQuery(PageQuery pageQuery) {
+		this.pageQuery = pageQuery;
+	}
+	
+	
+
 }

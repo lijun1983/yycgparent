@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="yycg.base.dao.mapper.SysuserMapperCustom">
-  <!--TODO:自定的 mapper -->
+  
   <!-- sql片段 -->
 	<!-- 用户查询条件 通常情况，为了提高 sql片段可重用性，按单表创建sql片段 -->
 	<sql id="query_sysuser_where">

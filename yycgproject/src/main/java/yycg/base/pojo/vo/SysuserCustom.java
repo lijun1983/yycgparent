@@ -3,26 +3,27 @@ package yycg.base.pojo.vo;
 import yycg.base.pojo.po.Sysuser;
 
 /**
- * @Version : 1.0
- * @ClassName :本类名称 SysuserCustom
- * @Auther : 创建人 Lijun
- * @Date : 创建时间 2018/8/19 0019 19:17
- * @Description: 描述 null
- * @TODO : 标注注释 null
- * Created by IntelliJ IDEA
+ * 
+ * <p>Title: SysuserCustom</p>
+ * <p>Description: 扩展类，用于提交信息、查询条件</p>
+ * <p>Company: www.itcast.com</p> 
+ * @author
+ * @date	2014年11月26日上午10:38:43
+ * @version 1.0
  */
 public class SysuserCustom extends Sysuser
 {
-  //单位名称
-  private String sysmc;
+	
+	//单位名称 
+	private String sysmc;
 
-  public String getSysmc()
-  {
-    return sysmc;
-  }
+	public String getSysmc() {
+		return sysmc;
+	}
 
-  public void setSysmc(String sysmc)
-  {
-    this.sysmc = sysmc;
-  }
+	public void setSysmc(String sysmc) {
+		this.sysmc = sysmc;
+	}
+	
+	
 }

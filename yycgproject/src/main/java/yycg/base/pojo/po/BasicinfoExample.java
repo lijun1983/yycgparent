@@ -3,6 +3,9 @@ package yycg.base.pojo.po;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
 public class BasicinfoExample {
     protected String orderByClause;
 

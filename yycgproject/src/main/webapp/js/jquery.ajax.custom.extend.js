@@ -1,7 +1,9 @@
 CONTEXT_URL = "/XXLTEST";
 var pathName = window.location.pathname.substring(1); 
 var webName = pathName == '' ? '' : pathName.substring(0, pathName.indexOf('/')); 
-var BaseUrl= window.location.protocol + '//' + window.location.host + '/'+ webName + '/'; 
+var BaseUrl= window.location.protocol + '//' + window.location.host + '/'+ webName + '/';
+//alert(BaseUrl);
+//alert('loading2.gif');
 /**
  * ajax请求时的参数设定
  * 

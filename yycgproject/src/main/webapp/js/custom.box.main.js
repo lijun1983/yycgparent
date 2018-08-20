@@ -303,8 +303,9 @@ function getCallbackData(data){
 	return data.resultInfo;
 }
 
-//form表单数据转成json
-(function($){  
+//TODO:form表单数据转成json
+(function($){
+	//TODO:serializeJson
     $.fn.serializeJson=function(){  
         var serializeObj={};  
         var array=this.serializeArray();  

@@ -178,6 +178,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
   <update id="updateByExampleSelective" parameterType="map" >
     update BASICINFO
     <set >
@@ -270,4 +271,5 @@
       VCHAR2 = #{vchar2,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+
 </mapper>

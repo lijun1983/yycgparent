@@ -47,7 +47,7 @@
 		//tabCloseEven();
 		//TODO:加载欢迎页面 TAB 选项
 		$('#tabs').tabs('add', {
-			title : '欢迎使用${sysuser.username}',//TODO:该变量待删除
+			title : '欢迎使用id-${sysuser.id}',//TODO:该变量待删除
 			content : createFrame('${baseurl}welcome.action')
 		}).tabs({
 			//当重新选中tab时将ifram的内容重新加载一遍

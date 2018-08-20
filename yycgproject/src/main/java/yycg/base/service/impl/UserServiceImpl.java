@@ -58,11 +58,30 @@ public class UserServiceImpl implements UserService
 
      *@创建时间  2018/8/19 0019
 
-     *@修改人和其它信息
+     *@修改人和其它信息  dao mapper -》 yycg.base.dao.mapper.SysuserMapperCustom -》 findSysuserList
 
      */
      return sysuserMapperCustom.findSysuserList(sysuserQueryVo);
   }
 
+  @Override
+  public int findSysuserCount(SysuserQueryVo sysuserQueryVo) throws Exception {
+    /**
+
+     *@描述
+
+     *@参数  [sysuserQueryVo]
+
+     *@返回值  int
+
+     *@创建人  lijun
+
+     *@创建时间  2018/8/20 0020
+
+     *@修改人和其它信息   dao mapper -》 yycg.base.dao.mapper.SysuserMapperCustom -》 findSysuserCount
+
+     */
+    return sysuserMapperCustom.findSysuserCount(sysuserQueryVo);
+  }
 
 }

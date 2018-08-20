@@ -19,7 +19,7 @@ public class FirsAction
 
   /**
 
-   *@描述 1.TODO：首页ok
+   *@描述 1.首页ok
 
    *@参数  [model]
 
@@ -30,8 +30,8 @@ public class FirsAction
    *@创建时间  2018/8/18 0018
 
    *@修改人和其它信息
-
    */
+  //TODO:
   @RequestMapping("/first")
   public String first(Model model)throws Exception{
 
