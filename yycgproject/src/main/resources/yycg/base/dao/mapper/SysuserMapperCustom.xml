@@ -77,7 +77,7 @@
 	<select id="findSysuserCount" parameterType="yycg.base.pojo.vo.SysuserQueryVo"
 	resultType="int">
 	
-	select count(*) from (
+	SELECT count(*) from (
 		select SYSUSER.id,
 		SYSUSER.userid,
 		SYSUSER.username,

@@ -42,20 +42,6 @@ public class UserAction
 	public String queryuser(Model model)throws Exception{
 		return "/base/user/queryuser";
 	}
-  /*@RequestMapping("/queryuser_result")
-	public @ResponseBody
-	DataGridResultInfo queryuser_result(SysuserQueryVo sysuserQueryVo) throws Exception{
-		//非空校验
-		sysuserQueryVo = sysuserQueryVo!=null?sysuserQueryVo:new SysuserQueryVo();
-    List<SysuserCustom> rows = userService.findSysuserList(sysuserQueryVo);
-    DataGridResultInfo dataGridResultInfo = new DataGridResultInfo();
-    //填充 total
-    dataGridResultInfo.setTotal(rows.size());
-    //填充  rows
-    dataGridResultInfo.setRows(rows);
-    return dataGridResultInfo;
-  //return  null;
-  }*/
 
 	/**
 
