@@ -56,11 +56,26 @@ public class UserAction
     return dataGridResultInfo;
   //return  null;
   }*/
-	//页码
-	//每页显示个数
+
+	/**
+
+	 *@描述
+
+	 *@参数  [sysuserQueryVo, page 页码, rows 每页显示个数]
+
+	 *@返回值  yycg.base.pojo.process.result.DataGridResultInfo
+
+	 *@创建人  lijun
+
+	 *@创建时间  2018/8/20 0020
+
+	 *@修改人和其它信息
+
+	 */
 	@RequestMapping("/queryuser_result")
 	public @ResponseBody
 	DataGridResultInfo queryuser_result(SysuserQueryVo sysuserQueryVo, int page, int rows)throws Exception{
+
 		//非空校验
 		sysuserQueryVo = sysuserQueryVo!=null?sysuserQueryVo:new SysuserQueryVo();
 
