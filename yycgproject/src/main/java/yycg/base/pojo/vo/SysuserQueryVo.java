@@ -2,7 +2,7 @@ package yycg.base.pojo.vo;
 
 /**
  * 
- * <p>Title: SysuserQueryVo</p>
+ * <p>Title: SysuserQueryVo   包装类 </p>
  * <p>Description:包装类，用于页面向action传递参数，将数据传到mybatis </p>
  * <p>Company: www.itcast.com</p> 
  * @author

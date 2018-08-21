@@ -4,7 +4,7 @@ import yycg.base.pojo.po.Sysuser;
 
 /**
  * 
- * <p>Title: SysuserCustom</p>
+ * <p>Title: SysuserCustom  扩展类 </p>
  * <p>Description: 扩展类，用于提交信息、查询条件</p>
  * <p>Company: www.itcast.com</p> 
  * @author
