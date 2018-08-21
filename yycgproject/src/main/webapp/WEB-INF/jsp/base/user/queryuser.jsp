@@ -74,7 +74,7 @@
                 handler : function() {
                     //TODO:打开一个窗口，用户添加页面
                     //参数：窗口的title、宽、高、url地址
-                    createmodalwindow("添加用户信息", 800, 250, '${baseurl}user/addsysuser.action');
+                    createmodalwindow("添加 系统 用户 信息", 800, 250, '${baseurl}user/addsysuser.action');
                 }
             },
 

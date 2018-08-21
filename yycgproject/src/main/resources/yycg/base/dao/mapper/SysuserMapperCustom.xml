@@ -23,8 +23,7 @@
 	</sql>
 
 	<!-- 用户查询 -->
-	<select id="findSysuserList" parameterType="yycg.base.pojo.vo.SysuserQueryVo"
-		resultType="yycg.base.pojo.vo.SysuserCustom">
+	<select id="findSysuserList" parameterType="yycg.base.pojo.vo.SysuserQueryVo" resultType="yycg.base.pojo.vo.SysuserCustom">
 		<if test="pageQuery!=null">
 			select page_2.*
 			from (select page_1.*, rownum page_num

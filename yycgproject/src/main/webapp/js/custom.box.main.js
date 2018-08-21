@@ -79,7 +79,7 @@ function getDictinfoIdlist(typecode,id){
 	}
 
 	
-//统一封装方法，作用：提示信息
+//TODO:统一封装方法，作用：提示信息
 function message_alert(data){
 	//从返回的json数据中获取结果信息
 	var data_v = data.resultInfo;
@@ -88,7 +88,8 @@ function message_alert(data){
 	var type=data_v.type;
 	//结果提示信息
 	var message=data_v.message;
-	//alert(message);
+	alert(message);
+	console.log(message);
 	if(type==0){
 		//如果type等于0表示失败，调用 jquery easyui的信息提示组件
 		$.messager.alert('提示信息',message,'error');

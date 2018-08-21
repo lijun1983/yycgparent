@@ -1,4 +1,4 @@
-package yycg.base.pojo.process.result;
+package yycg.base.process.result;
 
 import java.util.ArrayList;
 import java.util.List;
