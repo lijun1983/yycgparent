@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 数据查询列表结果
+ * 数据查询列表结果 JSON  类型
  * @author Thinkpad
  *
  */

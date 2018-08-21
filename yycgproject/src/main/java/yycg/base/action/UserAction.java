@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import yycg.base.pojo.vo.PageQuery;
 import yycg.base.pojo.vo.SysuserCustom;
 import yycg.base.pojo.vo.SysuserQueryVo;
+import yycg.base.process.context.Config;
 import yycg.base.process.result.DataGridResultInfo;
-import yycg.base.process.result.ResultInfo;
+import yycg.base.process.result.ResultUtil;
 import yycg.base.process.result.SubmitResultInfo;
 import yycg.base.service.UserService;
 
@@ -24,44 +25,36 @@ public class UserAction
 	@Autowired
 	private UserService userService;
 
-
 	/**
-
-	 *@描述  TODO: 用户管理 将页面所需要的数据取出，传到页面  绑定 jsp 静态页面的   添加用户页面 TODO:弹层
-
-	 *@参数  [model]
-
-	 *@返回值  java.lang.String
-
 	 *@创建人  lijun
-
-	 *@创建时间  2018/8/19 0019
-
+	 *@创建时间  2018/8/21 0021 下午 7:04
+	 *@描述 TODO: 用户管理 将页面所需要的数据取出，传到页面  绑定 jsp 静态页面的   添加用户页面 TODO:弹层
 	 *@修改人和其它信息  用户管理 模块
-
+	 *@当前包名 yycg.base.action
+	 *@本类名称 UserAction
+	 *@参数  [model]
+	 *@对像函数方法体的封装 function
+	 *@返回值  java.lang.String
 	 */
 	@RequestMapping("/queryuser")
 	public String queryuser(Model model)throws Exception{
+
 		//int i = 1/0;   //测试未知错误异常
 		return "/base/user/queryuser";
 	}
 
+
 	/**
-
-	 *@描述  绑定 json 数据的
-
-	 *@参数  [sysuserQueryVo, page 页码, rows 每页显示个数]
-
-	 *@返回值  yycg.base.process.result.DataGridResultInfo
-
 	 *@创建人  lijun
-
-	 *@创建时间  2018/8/20 0020
-
+	 *@创建时间  2018/8/21 0021 下午 7:03
+	 *@描述   绑定 json 数据的
 	 *@修改人和其它信息
-
+	 *@当前包名 yycg.base.action
+	 *@本类名称 UserAction
+	 *@参数  [sysuserQueryVo 包装类 , page, rows]
+	 *@对像函数方法体的封装 function
+	 *@返回值  yycg.base.process.result.DataGridResultInfo
 	 */
-
 	@RequestMapping("/queryuser_result")
 	public @ResponseBody DataGridResultInfo queryuser_result(SysuserQueryVo sysuserQueryVo, int page, int rows)throws Exception{
 
@@ -89,49 +82,48 @@ public class UserAction
 		return dataGridResultInfo;
 	}
 
+	
 	/**
-
-	 *@描述   绑定 jsp 静态页面的   添加用户页面 TODO:弹层
-
-	 *@参数  [model]
-
-	 *@返回值  java.lang.String
-
 	 *@创建人  lijun
-
-	 *@创建时间  2018/8/21 0021
-
+	 *@创建时间  2018/8/21 0021 下午 7:02
+	 *@描述   绑定 jsp 静态页面的   添加用户页面 TODO:弹层
 	 *@修改人和其它信息
-
+	 *@当前包名 yycg.base.action
+	 *@本类名称 UserAction
+	 *@参数  [model]
+	 *@对像函数方法体的封装 function
+	 *@返回值  java.lang.String
 	 */
 	@RequestMapping("/addsysuser")
-
 	public String addsysuser(Model model)throws Exception{
+
 		return "/base/user/addsysuser";
 	}
+
 	/**
-
-	 *@描述   绑定 json 数据的
-
-	 *@参数  [sysuserQueryVo]
-
-	 *@返回值  yycg.base.process.result.SubmitResultInfo
-
 	 *@创建人  lijun
-
-	 *@创建时间  2018/8/21 0021
-
+	 *@创建时间  2018/8/21 0021 下午 7:00
+	 *@描述
 	 *@修改人和其它信息
-
+	 *@当前包名 yycg.base.action
+	 *@本类名称 UserAction
+	 *@参数  [sysuserQueryVo] 包装类
+	 *@对像函数方法体的封装 function
+	 * ResultUtil.createSubmitResult();
+	 * createSubmitResult（） yycg/base/process/result/ResultUtil.java:97 查看
+	 * ResultUtil.createSuccess(Config.MESSAGE, 906, null)  yycg/base/process/result/ResultUtil.java:48 查看
+	 * Config.MESSAGE yycg/base/process/context/Config.java:30 查看
+	 * 906  resources/messages.properties:7   中查看
+	 *@返回值  yycg.base.process.result.SubmitResultInfo
 	 */
 	@RequestMapping("/addsysusersubmit")
 	public @ResponseBody SubmitResultInfo addsysusersubmit(SysuserQueryVo sysuserQueryVo) throws Exception{
 
 
    //默认为成功
-		ResultInfo resultInfo = new ResultInfo();
+		/*ResultInfo resultInfo = new ResultInfo();
 		resultInfo.setType(ResultInfo.TYPE_RESULT_SUCCESS);
-		resultInfo.setMessage("操作 成功！");
+		resultInfo.setMessage("操作 成功！");*/
 
 		//userService.insertSysuser(sysuserQueryVo.getSysuserCustom());
 		//本异常处理麻烦 需经多次调用 如何封装一下？====================
@@ -163,26 +155,10 @@ public class UserAction
 		//将执行结果返回页面
 
 
-		SubmitResultInfo submitResultInfo = new SubmitResultInfo(resultInfo);
+		//SubmitResultInfo submitResultInfo = new SubmitResultInfo(resultInfo);
 
-		return  submitResultInfo;
+		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
 	//return null;
 	}
-	/*@RequestMapping("/addsysusersubmit")
-	public @ResponseBody SubmitResultInfo addsysusersubmit(SysuserQueryVo sysuserQueryVo)throws Exception{
 
-		//提示用户信息
-//		String message = "操作成功！！";
-//		int type=0;//成功
-		//默认为成功
-		ResultInfo resultInfo = new ResultInfo();
-		resultInfo.setType(ResultInfo.TYPE_RESULT_SUCCESS);
-		resultInfo.setMessage("操作成功！");
-		//使用全局异常处理器后，在actoin不用进行try/catch捕获
-		userService.insertSysuser(sysuserQueryVo.getSysuserCustom());
-		//将执行结果返回页面
-		SubmitResultInfo submitResultInfo = new SubmitResultInfo(resultInfo);
-
-		return submitResultInfo;
-	}*/
 }

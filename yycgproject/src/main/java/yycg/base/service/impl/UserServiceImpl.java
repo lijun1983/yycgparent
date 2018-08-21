@@ -3,10 +3,10 @@ package yycg.base.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import yycg.base.dao.mapper.*;
 import yycg.base.pojo.po.*;
-import yycg.base.process.result.ExceptionResultInfo;
-import yycg.base.process.result.ResultInfo;
 import yycg.base.pojo.vo.SysuserCustom;
 import yycg.base.pojo.vo.SysuserQueryVo;
+import yycg.base.process.context.Config;
+import yycg.base.process.result.ResultUtil;
 import yycg.base.service.UserService;
 import yycg.util.UUIDBuild;
 
@@ -209,20 +209,21 @@ public class UserServiceImpl implements UserService
     }
     return null;
   }
+
   /**
-
-   *@描述
-
-   *@参数  [sysuserCustom]
-
-   *@返回值  void
-
    *@创建人  lijun
-
-   *@创建时间  2018/8/21 0021
-
-   *@修改人和其它信息
-
+   *@创建时间  2018/8/21 0021 下午 6:58
+   *@描述
+   *@修改人和其它信息  国际化工具类ResourcesUtil
+   *@当前包名 yycg.base.service.impl
+   *@本类名称 UserServiceImpl
+   *@参数  [sysuserCustom]   扩展类
+   *@对像函数方法体的封装 function
+   * throwExcepion()   yycg.base.process.result.ResultUtil#throwExcepion(yycg.base.process.result.ResultInfo) 查看
+   * yycg.base.process.result.ResultUtil#createFail(java.lang.String, int, java.lang.Object[])  查看
+   * 213 在  L:\yycgparent-02\yycgparent-02\yycgproject\src\main\resources\messages.properties 中查看
+   * Config.MESSAGE  yycg/base/process/context/Config.java:30  文件中查看
+   *@返回值  void
    */
 
   @Override
@@ -241,10 +242,18 @@ public class UserServiceImpl implements UserService
       //抛出异常，可预知异常
       //throw new Exception("账号重复");
       //使用系统自定义异常类
-      ResultInfo resultInfo = new ResultInfo();
+     /* ResultInfo resultInfo = new ResultInfo();
       resultInfo.setType(ResultInfo.TYPE_RESULT_FAIL);
       resultInfo.setMessage("账号重复");
-      throw new ExceptionResultInfo(resultInfo);
+      throw new ExceptionResultInfo(resultInfo);*/
+      //TODO:国际化工具类ResourcesUtil  资源文件读取异常信息
+      //使用ResultUtil构造resultInfo
+     // String message = ResourcesUtil.getValue("messages", "213");
+     // ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 213, null));
+		/*	ResultInfo resultInfo = ResultUtil.createFail("messages", 213, null);
+
+			throw new ExceptionResultInfo(resultInfo);*/
+      ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 213, null));
     }
 
     //根据用户类型，输入单位名称必须存在对应的单位表

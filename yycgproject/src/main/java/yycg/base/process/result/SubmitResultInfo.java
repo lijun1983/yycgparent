@@ -2,7 +2,7 @@ package yycg.base.process.result;
 
 
 /**
- * 系统提交结果结果类型
+ * 系统提交结果结果  类型
  * @author Thinkpad
  *  ResultInfo  系统提示信息封装类
  *

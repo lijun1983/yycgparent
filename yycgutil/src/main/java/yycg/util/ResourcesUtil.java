@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 /**
- * 资源文件读取工具类
+ * 3
  * 
  */
 public class ResourcesUtil implements Serializable {
@@ -63,7 +63,7 @@ public class ResourcesUtil implements Serializable {
 
 	/**
 	 * 通过key从资源文件读取内容
-	 * 
+	 * TODO:不用传参取配置信息：
 	 * @param fileName
 	 *            资源文件名
 	 * 
@@ -95,7 +95,7 @@ public class ResourcesUtil implements Serializable {
 
 	/**
 	 * 通过key从资源文件读取内容，并格式化
-	 * 
+	 * TODO:需要传参数取配置信息：
 	 * @param fileName
 	 *            资源文件名
 	 * 
@@ -114,23 +114,22 @@ public class ResourcesUtil implements Serializable {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getValue("resources.messages", "101",new Object[]{100,200}));
+	/*	System.out.println(getValue("messages", "101",new Object[]{100,200}));
 		
 		
 		//根据操作系统环境获取语言环境
-		/*Locale locale = Locale.getDefault();
+		Locale locale = Locale.getDefault();
 		System.out.println(locale.getCountry());//输出国家代码
-		System.out.println(locale.getLanguage());//输出语言代码s
+		System.out.println(locale.getLanguage());//输出语言代码
 		
 		//加载国际化资源（classpath下resources目录下的messages.properties，如果是中文环境会优先找messages_zh_CN.properties）
-		ResourceBundle rb = ResourceBundle.getBundle("resources.messages", locale);
+		ResourceBundle rb = ResourceBundle.getBundle("messages", locale);
 		String retValue = rb.getString("101");//101是messages.properties文件中的key
 		System.out.println(retValue);
 		
 		//信息格式化，如果资源中有{}的参数则需要使用MessageFormat格式化，Object[]为传递的参数，数量根据资源文件中的{}个数决定
 		String value = MessageFormat.format(retValue, new Object[]{100,200});
-		System.out.println(value);
-*/
+		System.out.println(value);*/
 
 	}
 }

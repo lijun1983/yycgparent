@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/jsp/base/common_js.jsp"%>
 <title>添加用户</title>
 <script type="text/javascript">
-	//TODO:提交函数
+	//TODO:表单 提交函数
   function sysusersave()
   {
 	  //准备使用jquery 提供的ajax Form提交方式
@@ -18,19 +18,19 @@
 	  //使用ajax form提交时，不用指定url，url就是form中定义的action
 	  //此种方式和原始的post方式差不多，只不过使用了ajax方式
 	  
-	  //第一个参数：form的id
-	  //第二个参数：sysusersave_callback 是回调函数，sysusersave_callback 当成一个方法的指针
+	  //TODO: 第一个参数：form的id
+	  //TODO: 第二个参数：sysusersave_callback 是回调函数，sysusersave_callback 当成一个方法的指针
 	  //第三个参数：传入的参数， 可以为空
-	  //第四个参数：dataType预期服务器返回的数据类型,这里 action 返回 json
-	  //根据form的id找到该form的action地址
+	  //TODO: 第四个参数：dataType预期服务器返回的数据类型,这里 action 返回 json
+	  //TODO: 根据form的id找到该form的action地址
 	  jquerySubByFId('userform',sysusersave_callback,null,"json");//js/custom.jquery.form.js
 	  
   }
-  //ajax调用的回调函数，ajax请求完成调用此函数，传入的参数是action返回的结果
-    //TODO:调用 js/custom.box.main.js:82
+  //TODO:ajax调用的回调函数，ajax请求完成调用此函数，传入的参数是action返回的结果
+
   function sysusersave_callback(data){
-	  alert("1")
-	  message_alert(data);
+	  alert("js/custom.box.main.js")
+	  message_alert(data); //TODO:调用 js/custom.box.main.js:82
 
   }
  
