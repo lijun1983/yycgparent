@@ -104,7 +104,7 @@ public class UserServiceImpl implements UserService
 
    *@创建时间  2018/8/21 0021
 
-   *@修改人和其它信息  用户表
+   *@修改人和其它信息   系统 用户表
 
    */
   public Sysuser findSysuserByUserid(String userId) throws Exception{
@@ -133,7 +133,7 @@ public class UserServiceImpl implements UserService
 
    *@创建时间  2018/8/21 0021
 
-   *@修改人和其它信息  监督单位  表
+   *@修改人和其它信息  监督单位 Userjd 表
 
    */
   public Userjd findUserjdByMc(String mc) throws Exception{
@@ -163,7 +163,7 @@ public class UserServiceImpl implements UserService
 
    *@创建时间  2018/8/21 0021
 
-   *@修改人和其它信息 卫生室  Useryy 表
+   *@修改人和其它信息 卫生室 医院  Useryy 表
 
    */
   public Useryy findUseryyByMc(String mc) throws Exception{
