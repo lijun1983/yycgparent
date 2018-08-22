@@ -32,7 +32,19 @@
 			formatter : function(value, row, index) {
 				if(value =='1'){return "正常";}
 				else if(value =='0'){return "暂停";}
-			}}
+			}
+			},
+            {field : 'opt1',title : '操作',width : 30,
+                formatter : function(value, row, index) {
+                    return "<a href=javascript:deleteuser('"+row.id+"')>删除</a>";
+                }
+            },
+            {field : 'opt2',title : '操作',width : 30,
+                formatter : function(value, row, index) {
+                    return "<a href=javascript:edituser('"+row.id+"')>修改</a>";
+                }
+            }
+
 	   ] ];
 
 
@@ -79,6 +91,42 @@
             },
 
         ];
+    //删除用户方法
+    function deleteuser(id){
+//alert(id);
+        //第一个参数是提示信息，第二个参数，取消执行的函数指针，第三个参是，确定执行的函数指针
+        _confirm('您确认删除吗？',null,function (){
+
+            //将要删除的id赋值给deleteid，deleteid在sysuserdeleteform中
+            $("#delete_id").val(id);
+            //使用ajax的from提交执行删除
+            //sysuserdeleteform：form的id，userdel_callback：删除回调函数，
+            //第三个参数是url的参数
+            //第四个参数是datatype，表示服务器返回的类型
+            jquerySubByFId('sysuserdeleteform',userdel_callback,null,"json");
+
+
+        });
+    }
+    //删除用户的回调
+    function userdel_callback(data){
+        message_alert(data);
+        //刷新 页面
+        //在提交成功后重新加载 datagrid
+        //取出提交结果
+        var type=data.resultInfo.type;
+        if(type==1){
+            //成功结果
+            queryuser();//TODO:删除成功后 重新加载 datagrid
+        }
+    }
+
+    //修改用户
+    function edituser(id){
+
+        //打开修改窗口
+        createmodalwindow("修改用户信息", 800, 250, '${baseurl}user/editsysuser.action?id='+id);
+    }
 
 </script>
 
@@ -126,6 +174,10 @@
 			</TR>
 		</TBODY>
 	</TABLE>
+</form>
+	<%--TODO:删除用户的 地址--%>
+<form id="sysuserdeleteform" action="${baseurl}user/deletesysuser.action" method="post">
+	<input type="hidden" id="delete_id" name="id" />
 </form>
 </body>
 </html>

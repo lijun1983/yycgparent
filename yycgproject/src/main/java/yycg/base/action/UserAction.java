@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import yycg.base.pojo.po.Sysuser;
 import yycg.base.pojo.vo.PageQuery;
 import yycg.base.pojo.vo.SysuserCustom;
 import yycg.base.pojo.vo.SysuserQueryVo;
@@ -21,14 +22,13 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserAction
 {
-	
 	@Autowired
 	private UserService userService;
 
 	/**
 	 *@创建人  lijun
 	 *@创建时间  2018/8/21 0021 下午 7:04
-	 *@描述 TODO: 用户管理 将页面所需要的数据取出，传到页面  绑定 jsp 静态页面的   添加用户页面 TODO:弹层
+	 *@描述 TODO: 1.用户管理 列表模板 页面  绑定 jsp 静态页面的
 	 *@修改人和其它信息  用户管理 模块
 	 *@当前包名 yycg.base.action
 	 *@本类名称 UserAction
@@ -47,12 +47,16 @@ public class UserAction
 	/**
 	 *@创建人  lijun
 	 *@创建时间  2018/8/21 0021 下午 7:03
-	 *@描述   绑定 json 数据的
+	 *@描述   2.用户管理 列表 结果级 绑定返回 json 数据
 	 *@修改人和其它信息
 	 *@当前包名 yycg.base.action
 	 *@本类名称 UserAction
 	 *@参数  [sysuserQueryVo 包装类 , page, rows]
 	 *@对像函数方法体的封装 function
+	 * findSysuserCount(sysuserQueryVo) 查询列表的总数(统计)
+	 * findSysuserList(sysuserQueryVo) 所有记录查询
+	 * new PageQuery() 分页查询参数类
+	 *new DataGridResultInfo()  数据查询列表结果 JSON  类型
 	 *@返回值  yycg.base.process.result.DataGridResultInfo
 	 */
 	@RequestMapping("/queryuser_result")
@@ -86,7 +90,7 @@ public class UserAction
 	/**
 	 *@创建人  lijun
 	 *@创建时间  2018/8/21 0021 下午 7:02
-	 *@描述   绑定 jsp 静态页面的   添加用户页面 TODO:弹层
+	 *@描述   3.用户管理 添加用户 弹层 模板 绑定 jsp 静态页面的
 	 *@修改人和其它信息
 	 *@当前包名 yycg.base.action
 	 *@本类名称 UserAction
@@ -103,15 +107,18 @@ public class UserAction
 	/**
 	 *@创建人  lijun
 	 *@创建时间  2018/8/21 0021 下午 7:00
-	 *@描述
+	 *@描述  4.插入数据 返回绑定 json 数据
 	 *@修改人和其它信息
 	 *@当前包名 yycg.base.action
 	 *@本类名称 UserAction
 	 *@参数  [sysuserQueryVo] 包装类
 	 *@对像函数方法体的封装 function
+	 * 国际化工具类 系统结果工具类  包括 系统 异常 提交  等结果的封装
+	 * insertSysuser(sysuserQueryVo.getSysuserCustom()) 插入数据 返回绑定json 数据
 	 * ResultUtil.createSubmitResult();
 	 * createSubmitResult（） yycg/base/process/result/ResultUtil.java:97 查看
 	 * ResultUtil.createSuccess(Config.MESSAGE, 906, null)  yycg/base/process/result/ResultUtil.java:48 查看
+	 * 参数：
 	 * Config.MESSAGE yycg/base/process/context/Config.java:30 查看
 	 * 906  resources/messages.properties:7   中查看
 	 *@返回值  yycg.base.process.result.SubmitResultInfo
@@ -160,5 +167,74 @@ public class UserAction
 		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
 	//return null;
 	}
+	//
+	/**
+	 *@创建人  lijun
+	 *@创建时间  2018/8/22 0022 上午 7:46
+	 *@描述 5.DEL系统用户
+	 *@修改人和其它信息
+	 *@当前包名 yycg.base.action
+	 *@本类名称 UserAction
+	 *@参数  [id]
+	 *@对像函数方法体的封装 function
+	 * deleteSysuser(id)  删除用户
+	 *@返回值  yycg.base.process.result.SubmitResultInfo
+	 */
+	@RequestMapping("/deletesysuser")
+	public @ResponseBody SubmitResultInfo deletesysuser(String id ) throws Exception{
+
+    userService.deleteSysuser(id);
+
+		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE,906,null));
+	}
+
+	//
+	/**
+	 *@创建人  lijun
+	 *@创建时间  2018/8/21 0021 下午 9:42
+	 *@描述 6.EDIT  返回  绑定 jsp 修改页面 并查询 系统 单条 用户信息
+	 *@修改人和其它信息
+	 *@当前包名 yycg.base.action
+	 *@本类名称 UserAction
+	 *@参数  [model, id]
+	 *@对像函数方法体的封装 function
+	 * findSysuserById(id)
+	 *@返回值  java.lang.String
+	 */
+
+	@RequestMapping("/editsysuser")
+	public String editsysuser(Model model,String id)throws Exception{
+
+		//通过id取出用户信息，传向页面
+		final Sysuser sysuserById = userService.findSysuserById(id);
+
+		SysuserCustom sysuserCustom = (SysuserCustom) sysuserById;
+
+		model.addAttribute("sysuserCustom", sysuserCustom);
+
+		return "/base/user/editsysuser";
+	}
+
+	@RequestMapping("/editsysusersubmit")
+	public @ResponseBody SubmitResultInfo editsysusersubmit(String id, SysuserQueryVo sysuserQueryVo)throws Exception{
+		/**
+		 *@创建人  lijun
+		 *@创建时间  2018/8/21 0021 下午 9:44
+		 *@描述 7.EDIT系统用户 提交后台 绑定 json 数据 完成处理
+		 *@修改人和其它信息
+		 *@当前包名 yycg.base.action
+		 *@本类名称 UserAction
+		 *@参数  [id, sysuserQueryVo]
+		 *@对像函数方法体的封装 function
+		 * updateSysuser(id,sysuserQueryVo.getSysuserCustom())
+		 *国际化工具类 系统结果工具类  包括 系统 异常 提交  等结果的封装
+		 * ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE,906,null))
+		 *@返回值  yycg.base.process.result.SubmitResultInfo
+		 */
+    userService.updateSysuser(id,sysuserQueryVo.getSysuserCustom());
+
+		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE,906,null));
+	}
+
 
 }
