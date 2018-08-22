@@ -40,19 +40,12 @@ public class UserServiceImpl implements UserService
   public List<SysuserCustom> findSysuserList(SysuserQueryVo sysuserQueryVo) throws Exception
   {
     /**
-
-     *@描述
-
+     * 
+     *@当前包名 yycg.base.service.impl 
+     *@本类名称 UserServiceImpl 
      *@参数  [sysuserQueryVo]
-
+     * 
      *@返回值  java.util.List<yycg.base.pojo.vo.SysuserCustom>
-
-     *@创建人  lijun
-
-     *@创建时间  2018/8/19 0019
-
-     *@修改人和其它信息  dao mapper -》 yycg.base.dao.mapper.SysuserMapperCustom -》 findSysuserList
-
      */
      return sysuserMapperCustom.findSysuserList(sysuserQueryVo);
   }
@@ -60,39 +53,25 @@ public class UserServiceImpl implements UserService
   @Override
   public int findSysuserCount(SysuserQueryVo sysuserQueryVo) throws Exception {
     /**
-
-     *@描述
-
+     *
+     *@当前包名 yycg.base.service.impl 
+     *@本类名称 UserServiceImpl 
      *@参数  [sysuserQueryVo]
-
+     * findSysuserCount(sysuserQueryVo) 调用 dao mapper 接口
      *@返回值  int
-
-     *@创建人  lijun
-
-     *@创建时间  2018/8/20 0020
-
-     *@修改人和其它信息   dao mapper -》 yycg.base.dao.mapper.SysuserMapperCustom -》 findSysuserCount
-
      */
     return sysuserMapperCustom.findSysuserCount(sysuserQueryVo);
   }
+
   /**
-
-   *@描述  根据账号查询用户方法
-
+   * 系统 用户表 Sysuser
+   *@当前包名 yycg.base.service.impl
+   *@本类名称 UserServiceImpl
    *@参数  [userId]
-
+   *
    *@返回值  yycg.base.pojo.po.Sysuser
-
-   *@创建人  lijun
-
-   *@创建时间  2018/8/21 0021
-
-   *@修改人和其它信息   系统 用户表
-
    */
   public Sysuser findSysuserByUserid(String userId) throws Exception{
-
     SysuserExample sysuserExample = new SysuserExample();
     SysuserExample.Criteria criteria = sysuserExample.createCriteria();
 
@@ -105,23 +84,16 @@ public class UserServiceImpl implements UserService
     }
     return null;
   }
-  /**
-
-   *@描述 根据单位名称 查询单位信息
-
-   *@参数  [mc]
-
-   *@返回值  yycg.base.pojo.po.Userjd
-
-   *@创建人  lijun
-
-   *@创建时间  2018/8/21 0021
-
-   *@修改人和其它信息  监督单位 Userjd 表
-
-   */
+ 
   public Userjd findUserjdByMc(String mc) throws Exception{
-
+   /**
+    * 根据单位名称 查询单位信息
+    *@当前包名 yycg.base.service.impl 
+    *@本类名称 UserServiceImpl 
+    *@参数  [mc]
+    * 监督单位 Userjd 表
+    *@返回值  yycg.base.pojo.po.Userjd
+    */
 
     UserjdExample userjdExample = new UserjdExample();
     UserjdExample.Criteria criteria = userjdExample.createCriteria();
@@ -135,23 +107,16 @@ public class UserServiceImpl implements UserService
     }
     return null;
   }
-  /**
-
-   *@描述
-
-   *@参数  [mc]
-
-   *@返回值  yycg.base.pojo.po.Useryy
-
-   *@创建人  lijun
-
-   *@创建时间  2018/8/21 0021
-
-   *@修改人和其它信息 卫生室 医院  Useryy 表
-
-   */
+ 
   public Useryy findUseryyByMc(String mc) throws Exception{
-
+    /**
+     * 
+     *@当前包名 yycg.base.service.impl 
+     *@本类名称 UserServiceImpl 
+     *@参数  [mc]
+     * 卫生室 医院  Useryy 表
+     *@返回值  yycg.base.pojo.po.Useryy
+     */
     UseryyExample useryyExample = new UseryyExample();
     UseryyExample.Criteria criteria = useryyExample.createCriteria();
 
@@ -164,22 +129,16 @@ public class UserServiceImpl implements UserService
     }
     return null;
   }
-  /**
 
-   *@描述
-
-   *@参数  [mc]
-
-   *@返回值  yycg.base.pojo.po.Usergys
-
-   *@创建人  lijun
-
-   *@创建时间  2018/8/21 0021
-
-   *@修改人和其它信息   供货商 Usergys 表
-
-   */
   public Usergys findUsergysByMc(String mc) throws Exception{
+  /**
+   * 
+   *@当前包名 yycg.base.service.impl 
+   *@本类名称 UserServiceImpl 
+   *@参数  [mc]
+   * 供货商 Usergys 表
+   *@返回值  yycg.base.pojo.po.Usergys
+   */
 
     UsergysExample usergysExample = new UsergysExample();
     UsergysExample.Criteria criteria = usergysExample.createCriteria();
@@ -195,9 +154,6 @@ public class UserServiceImpl implements UserService
   }
 
   /**
-   *@创建人  lijun
-   *@创建时间  2018/8/21 0021 下午 6:58
-   *@描述
    *@修改人和其它信息  国际化工具类ResourcesUtil
    *@当前包名 yycg.base.service.impl
    *@本类名称 UserServiceImpl
@@ -285,6 +241,14 @@ public class UserServiceImpl implements UserService
   @Override
   public void deleteSysuser(String id) throws Exception
   {
+    /**
+     * 
+     *@当前包名 yycg.base.service.impl 
+     *@本类名称 UserServiceImpl 
+     *@参数  [id]
+     * 
+     *@返回值  void 
+     */
     //校验用户是否存在
     Sysuser sysuser = sysuserMapper.selectByPrimaryKey(id);
     if(sysuser == null)
@@ -295,20 +259,18 @@ public class UserServiceImpl implements UserService
     sysuserMapper.deleteByPrimaryKey(id);
     //return;
   }
-  /**
-   *@创建人  lijun
-   *@创建时间  2018/8/21 0021 下午 8:39
-   *@描述 EDIT系统用户 提交后台完成处理
-   *@修改人和其它信息
-   *@当前包名 yycg.base.service.impl
-   *@本类名称 UserServiceImpl
-   *@参数  [id 用户ID, sysuserCustom  修改表单数据]
-   *@对像函数方法体的封装 function
-   *@返回值  void
-   */
+ 
   @Override
   public void updateSysuser(String id, @Param("sysuserCustom") SysuserCustom sysuserCustom) throws Exception
   {
+    /**
+     * EDIT系统用户 提交后台完成处理
+     *@当前包名 yycg.base.service.impl 
+     *@本类名称 UserServiceImpl 
+     *@参数  [id 用户ID, sysuserCustom  修改表单数据]
+     * 
+     *@返回值  void
+     */
     //非空校验。。。
 
     //修改用户账号不允许暂用别人的账号
@@ -415,15 +377,13 @@ public class UserServiceImpl implements UserService
   }
   @Override
   public SysuserCustom findSysuserById(String id) throws Exception {
+
    /**
-    *@创建人  lijun
-    *@创建时间  2018/8/21 0021 下午 9:22
-    *@描述   返回单 条记录的信息
-    *@修改人和其它信息
-    *@当前包名 yycg.base.service.impl
-    *@本类名称 UserServiceImpl
+    * 返回单 条记录的信息
+    *@当前包名 yycg.base.service.impl 
+    *@本类名称 UserServiceImpl 
     *@参数  [id]
-    *@对像函数方法体的封装 function
+    * 
     *@返回值  yycg.base.pojo.vo.SysuserCustom
     */
     //从数据库查询用户
