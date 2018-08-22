@@ -35,6 +35,7 @@
 		SYSUSER.userid,
 		SYSUSER.username,
 		SYSUSER.groupid,
+		(select info from dictinfo where dictinfo.dictcode = SYSUSER.groupid and typecode='s01' ) groupname,
 		sysuser.USERSTATE,
 		SYSUSER.sysid,
 		decode(SYSUSER.Groupid,

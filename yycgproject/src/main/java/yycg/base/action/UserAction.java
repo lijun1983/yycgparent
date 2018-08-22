@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import yycg.base.pojo.po.Dictinfo;
 import yycg.base.pojo.po.Sysuser;
 import yycg.base.pojo.vo.PageQuery;
 import yycg.base.pojo.vo.SysuserCustom;
@@ -13,6 +14,7 @@ import yycg.base.process.context.Config;
 import yycg.base.process.result.DataGridResultInfo;
 import yycg.base.process.result.ResultUtil;
 import yycg.base.process.result.SubmitResultInfo;
+import yycg.base.service.SystemConfigService;
 import yycg.base.service.UserService;
 
 import java.util.List;
@@ -24,6 +26,8 @@ public class UserAction
 {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private SystemConfigService systemConfigService;
 
 	/**
 	 *@创建人  lijun
@@ -34,12 +38,16 @@ public class UserAction
 	 *@本类名称 UserAction
 	 *@参数  [model]
 	 *@对像函数方法体的封装 function
+	 * systemConfigService.findDictinfoByType("s01");  返回数据字典表的 下拉类型值   Dictinfo这个表 TODO:数据字典 14 讲
 	 *@返回值  java.lang.String
 	 */
 	@RequestMapping("/queryuser")
 	public String queryuser(Model model)throws Exception{
 
 		//int i = 1/0;   //测试未知错误异常
+		//返回用户的类型
+		List<Dictinfo> groupList = systemConfigService.findDictinfoByType("s01");
+		model.addAttribute("groupList",groupList);
 		return "/base/user/queryuser";
 	}
 

@@ -1,13 +1,14 @@
 package yycg.base.pojo.vo;
-
 /**
- * 
- * <p>Title: SysuserQueryVo   包装类 </p>
- * <p>Description:包装类，用于页面向action传递参数，将数据传到mybatis </p>
- * <p>Company: www.itcast.com</p> 
- * @author
- * @date	2014年11月26日上午10:32:50
- * @version 1.0
+ *@创建人  lijun
+ *@创建时间  2018/8/22 0022 下午 12:33
+ *@描述  包装类，用于页面向action传递参数，将数据传到mybatis
+ *@修改人和其它信息
+ *@当前包名 yycg.base.pojo.vo
+ *@本类名称 SysuserQueryVo
+ *@参数   pageQuery, sysuserCustom
+ *@对像函数方法体的封装 function
+ *@返回值  
  */
 public class SysuserQueryVo {
 	

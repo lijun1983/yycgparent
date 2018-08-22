@@ -19,13 +19,14 @@
 		[ [
 			{field : 'userid',title : '账号',width : 120},//field : 'userid'对应json中的key
 			{field : 'username',title : '名称 ',width : 180},//对应json中的key
-			{field : 'groupid',title : '用户类型',width : 120,
-			formatter : function(value, row, index) {
+			{field : 'groupname',title : '用户类型',width : 120,
+				//TODO:数据字典 14 讲
+			/*formatter : function(value, row, index) {
 				if(value =='1'){return "卫生局";}
 				else if(value =='2'){return "卫生院";}
 				else if(value =='3'){return "卫生室";}
 				else if(value =='4'){return "供货商";}
-				else if(value =='0'){return "系统管理员";}}
+				else if(value =='0'){return "系统管理员";}}*/
 			 },
 			{field : 'sysmc',title : '所属单位',width : 120},
 			{field : 'userstate',title : '状态',width : 120,
@@ -62,7 +63,7 @@
 			columns : columns_v,// var columns_v = [] 在上面定义的
 			pagination : true,//是否显示分页
 			rownumbers : true,//是否显示行号
-            pageSize : 5,
+            pageSize : 10,
 			pageList:[5,10,15,30,50],
 			toolbar : toolbar_v //添加 用户 弹层
 		});
@@ -149,11 +150,15 @@
 				<TD class="left">用户类型：</TD>
 				<td><select name="sysuserCustom.groupid">
 						<option value="">请选择</option>
-						<option value="1">卫生局</option>
+					<%--TODO:数据字典 14 讲--%>
+						<%--<option value="1">卫生局</option>
 						<option value="2">卫生院</option>
 						<option value="3">卫生室</option>
 						<option value="4">供货商</option>
-						<option value="0">系统管理员</option>
+						<option value="0">系统管理员</option>--%>
+					<c:forEach items="${groupList}" var="dictinfo">
+						<option value="${dictinfo.dictcode}">${dictinfo.info}</option>
+					</c:forEach>
 
 				</select></TD>
 				<td><a id="btn" href="#" onclick="queryuser()"

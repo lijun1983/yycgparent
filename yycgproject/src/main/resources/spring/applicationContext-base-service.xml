@@ -13,7 +13,8 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd ">
 
-<!-- 用户管理 -->
+<!-- TODO:用户管理 -->
 <bean id="userService" class="yycg.base.service.impl.UserServiceImpl"/>
-
+	<!-- TODO:系统配置 -->
+	<bean id="systemConfigService" class="yycg.base.service.impl.SystemConfigServiceImpl"/>
 </beans>
