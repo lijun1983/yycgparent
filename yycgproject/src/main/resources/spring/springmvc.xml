@@ -29,15 +29,24 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- json转换器 -->
+	<!-- TODO:json转换器 -->
 	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
 
-	<!-- 统一异常处理类 -->
+	<!-- TODO:统一异常处理类 -->
 	<bean id="handlerExceptionResolver" class="yycg.base.process.exception.ExceptionResolverCustom">
 		<!-- 注入一个json转换器 -->
 		<property name="jsonMessageConverter" ref="jsonMessageConverter" />
 	</bean>
+	<!-- TODO:拦截器 -->
+	<mvc:interceptors>
+		<!-- 多个拦截器,顺序执行 -->
+		<!-- 用户身份校验的拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="yycg.base.filter.LoginInterceptor"></bean>
+		</mvc:interceptor>
 
+	</mvc:interceptors>
 
 
 </beans>

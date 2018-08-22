@@ -5,6 +5,7 @@ import yycg.base.pojo.po.Sysuser;
 import yycg.base.pojo.po.Usergys;
 import yycg.base.pojo.po.Userjd;
 import yycg.base.pojo.po.Useryy;
+import yycg.base.pojo.vo.ActiveUser;
 import yycg.base.pojo.vo.SysuserCustom;
 import yycg.base.pojo.vo.SysuserQueryVo;
 
@@ -80,6 +81,16 @@ public interface UserService
    */
   public void updateSysuser(String id,@Param("sysuserCustom") SysuserCustom sysuserCustom) throws Exception;
 
+
+  /**
+   * 校验用户信息
+   *@当前包名 yycg.base.service 
+   *@本类名称 UserService 
+   *@参数  String userid, String pwd
+   * 
+   *@返回值   
+   */
+  public ActiveUser checkUserInfo(String userid, String pwd)throws Exception;
 
 
 

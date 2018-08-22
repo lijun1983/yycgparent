@@ -3,6 +3,7 @@
 <%@ include file="/WEB-INF/jsp/base/tag.jsp"%>
 <html>
 <head>
+	<%--TODO: messagesBundle  /WEB-INF/jsp/base/tag.jsp 定义的--%>
 <TITLE><fmt:message key="title" bundle="${messagesBundle}" /></TITLE>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -33,7 +34,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	//*****************表单校验******************
+	//TODO:*****************表单校验******************
 	$.formValidator.initConfig({
 		formID : "loginform",
 		mode:'AlertTip',
@@ -66,15 +67,19 @@ $(document).ready(function(){
 		onError:"请输入验证码"
 	});
 	//*****************表单校验******************
+
+
+
+
 });
 
-	//校验表单输入
+	//TODO:校验表单输入
 	function checkinput() {
 		//return $('#loginform').form('validate');
 		return $.formValidator.pageIsValid();
 	}
 
-	//登录提示方法
+	//TODO:登录提示方法
 	function loginsubmit() {
 		if(checkinput()){//校验表单，如果校验通过则执行jquerySubByFId
 			//ajax form提交
@@ -82,27 +87,27 @@ $(document).ready(function(){
 		}
 
 	}
-	//登录提示回调方法
+	//TODO:登录提示回调方法
 	function login_commit_callback(data) {
 		message_alert(data);
 		var type = data.resultInfo.type;
 		if (1 == type) {//如果登录成功，这里1秒后执行跳转到首页
 			setTimeout("tofirst()", 1000);
 		} else {
-			//登录错误，重新刷新验证码
+			//TODO:登录错误，重新刷新验证码
 			randomcode_refresh();
 		}
 
 	}
-	//刷新验证码
+	//TODO:刷新验证码
 	//实现思路，重新给图片的src赋值，后边加时间，防止缓存 
 	function randomcode_refresh() {
 		$("#randomcode_img").attr('src',
 				'${baseurl}validatecode.jsp?time' + new Date().getTime());
 	}
-	//回首页
+	//TODO:回首页
 	function tofirst(){
-		
+        //TODO: 此方式跳转最好
 		if(parent.parent.parent){
 			parent.parent.parent.location='${baseurl}first.action';
 		}else if(parent.parent){
@@ -111,7 +116,8 @@ $(document).ready(function(){
 			parent.location='${baseurl}first.action';
 		}else{
 			window.location='${baseurl}first.action';
-		}  
+		}
+		//TODO: 此方式跳转有bug
 		//window.location='${baseurl}first.action';
 	}
 </SCRIPT>
@@ -145,11 +151,11 @@ $(document).ready(function(){
 							</TD>
 						</TR>
 						<TR>
-							<TD>验证码：</TD>
-							<TD><input id="randomcode" name="randomcode" size="8" /> <img
-								id="randomcode_img" src="${baseurl}validatecode.jsp" alt=""
+							<TD>验证码：</TD><%--${baseurl}--%>
+							<TD><input id="randomcode" name="validateCode" size="8" /> <img
+								id="randomcode_img" src="/alidatecode.jsp" alt=""
 								width="56" height="20" align='absMiddle' /> <a
-								href=javascript:randomcode_refresh()>刷新</a></TD>
+								href=javascript:randomcode_refresh()>刷新</a></TD>这需要点击刷新才出验证码 BUG
 						</TR>
 
 						<TR>

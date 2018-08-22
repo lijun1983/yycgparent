@@ -69,6 +69,18 @@ public class ExceptionResolverCustom implements HandlerExceptionResolver {
 		// 解析异常
 		ExceptionResultInfo exceptionResultInfo = resolveExceptionCustom(ex);
 
+		// 这里说明action返回的是jsp页面
+
+
+		String view = "/base/error";
+		//异常代码
+		int messageCode = exceptionResultInfo.getResultInfo().getMessageCode();
+		//如果是106则跳转到登陆
+		if(messageCode==106){
+			//跳转到登陆
+			view = "/base/login";
+		}
+
 		// 将异常信息在异常页面显示
 		request.setAttribute("exceptionResultInfo",
 				exceptionResultInfo.getResultInfo());
@@ -77,7 +89,7 @@ public class ExceptionResolverCustom implements HandlerExceptionResolver {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("exceptionResultInfo",exceptionResultInfo.getResultInfo());
 
-		modelAndView.setViewName("/base/error");// TODO:逻辑视图名 WEB-INF/jsp/base/error.jsp
+		modelAndView.setViewName(view);// TODO:逻辑视图名 WEB-INF/jsp/base/error.jsp
 		return modelAndView;
 	}
 
@@ -91,6 +103,7 @@ public class ExceptionResolverCustom implements HandlerExceptionResolver {
 			// 重新构造“未知错误”异常
 			resultInfo = new ResultInfo();
 			resultInfo.setType(ResultInfo.TYPE_RESULT_FAIL);
+			//TODO:未知错误！
 			resultInfo.setMessage("未知错误！");
 		}
 
