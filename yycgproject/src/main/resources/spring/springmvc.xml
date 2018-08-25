@@ -15,14 +15,10 @@
 
 	<!-- TODO:组件扫描 扫描所有标记@Controller类，由于使用自动扫描所以action类不用在spring配置文件中配置 base-package="yycg.**.action" -->
 	<context:component-scan base-package="yycg.**.action" />
-
     <!-- TODO:处理器映射器和适配器，可以使用mvc注解驱动 -->
     <mvc:annotation-driven/>
-
-
 	<!-- TODO:视图解析器 -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- TODO:将jstl的jar包加入工程，默认支持jstl -->
 		<!-- TODO:前缀和后缀可以去掉的，为了方便开发才加的 -->
 		<property name="prefix" value="/WEB-INF/jsp" />
@@ -37,6 +33,14 @@
 		<!-- 注入一个json转换器 -->
 		<property name="jsonMessageConverter" ref="jsonMessageConverter" />
 	</bean>
+	<!-- TODO:文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- TODO:设置上传文件的最大尺寸为5MB -->
+		<property name="maxUploadSize">
+			<value>5242880</value>
+		</property>
+	</bean>
+
 	<!-- TODO:拦截器 -->
 	<mvc:interceptors>
 		<!-- 多个拦截器,顺序执行 -->

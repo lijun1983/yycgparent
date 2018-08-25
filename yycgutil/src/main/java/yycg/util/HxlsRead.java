@@ -5,7 +5,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *@创建人  lijun
+ *@创建时间  2018/8/25 0025 下午 1:50
+ *@描述      TODO:药品目录 导入 工具类
+ *@修改人和其它信息
+ *@当前包名 yycg.util
+ *@本类名称 HxlsRead
+ *@参数  
+ *@对像函数方法体的封装 function
+ *@返回值  
+ */
 public class HxlsRead extends HxlsAbstract{
 
 	
@@ -27,7 +37,7 @@ public class HxlsRead extends HxlsAbstract{
 	//要处理数据所在的sheet索引,sheet索引从0开始
 	private int sheetIndex;
 	/**
-	 * 导入文件的名称
+	 * TODO:导入文件的名称
 	 * @param filename 导入文件的物理路径 
 	 * @param sheetIndex 要读取数据所在sheet序号
 	 * @param hxlsOptRowsInterface 处理读取每一行数据的接口
@@ -46,7 +56,7 @@ public class HxlsRead extends HxlsAbstract{
 	}
 
 	/**
-	 * 对读取到一行数据进行解析
+	 * TODO:对读取到一行数据进行解析
 	 */
 	@Override
 	public void optRows(int sheetIndex,int curRow, List<String> rowlist) throws Exception {
@@ -122,14 +132,14 @@ public class HxlsRead extends HxlsAbstract{
 	public void setFailmsgs(List<String> failmsgs) {
 		this.failmsgs = failmsgs;
 	}
-
+//TODO:导入测试成功 插入数据库
 	public static void main(String[] args){
 		HxlsRead xls2csv;
 		try {
 			//第一个参数就是导入的文件
 			//第二个参数就是导入文件中哪个sheet
 			//第三个参数导入接口的实现类对象
-			xls2csv = new HxlsRead("d:/test11.xls",0,new HxlsOptRowsInterfaceImpl());
+			xls2csv = new HxlsRead("l:/ypxx.xls",0,new HxlsOptRowsInterfaceImpl());
 			xls2csv.process();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

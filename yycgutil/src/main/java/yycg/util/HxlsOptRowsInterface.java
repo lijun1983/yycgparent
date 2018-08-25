@@ -6,7 +6,8 @@ public interface HxlsOptRowsInterface {
 	
 	public static final String SUCCESS="success";
 	/**
-	 * 处理excel文件每行数据方法
+	 * TODO:药品目录 导入接口
+	 * TODO:处理excel文件每行数据方法
 	 * @param sheetIndex 为sheet的序号
 	 * @param curRow	为行号
 	 * @param rowlist   行数据

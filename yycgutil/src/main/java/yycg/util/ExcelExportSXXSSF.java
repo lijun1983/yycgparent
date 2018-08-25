@@ -71,8 +71,8 @@ public class ExcelExportSXXSSF {
 	 * 			写磁盘控制参数
 	 * @return
 	 */
-	public static ExcelExportSXXSSF start(String filePath, String fileWebPath,String filePrefix,
-			List<String> fieldNames,List<String> fieldCodes, int flushRows) throws Exception {
+	public static ExcelExportSXXSSF start(String filePath, String fileWebPath,String filePrefix,List<String> fieldNames,List<String> fieldCodes, int flushRows) throws Exception {
+
 		ExcelExportSXXSSF excelExportSXXSSF = new ExcelExportSXXSSF();
 		excelExportSXXSSF.setFilePath(filePath);
 		excelExportSXXSSF.setFileWebPath(fileWebPath);
@@ -84,6 +84,7 @@ public class ExcelExportSXXSSF {
 		excelExportSXXSSF.writeTitles();
 		return excelExportSXXSSF;
 	}
+
 
 	/**
 	 * 设置导入文件的标题
@@ -276,7 +277,8 @@ public class ExcelExportSXXSSF {
 	public void setFileAllPath(String fileAllPath) {
 		this.fileAllPath = fileAllPath;
 	}
-	
+
+
 	public static void main(String[] args) throws Exception {
 		/**            导出文件存放物理路径
 		 * @param fileWebPath
@@ -290,8 +292,8 @@ public class ExcelExportSXXSSF {
 		 * @param fieldCodes
 		 * 			  导出数据对象的字段名称     
 		 * @param flushRows*/
-		//导出文件存放的路径，并且是虚拟目录指向的路径
-		String filePath = "d:/upload/linshi/";
+		//TODO:导出文件存放的路径，并且是虚拟目录指向的路径
+		String filePath = "L:/upload/linshi/";
 		//导出文件的前缀
 		String filePrefix="ypxx";
 		//-1表示关闭自动刷新，手动控制写磁盘的时机，其它数据表示多少数据在内存保存，超过的则写入磁盘

@@ -9,6 +9,17 @@ import yycg.base.pojo.po.DictinfoExample;
 import yycg.base.service.SystemConfigService;
 
 import java.util.List;
+/**
+ *@创建人  lijun
+ *@创建时间  2018/8/24 0024 下午 6:36
+ *@描述   数据字典
+ *@修改人和其它信息
+ *@当前包名 yycg.base.service.impl
+ *@本类名称 SystemConfigServiceImpl
+ *@参数  
+ *@对像函数方法体的封装 function
+ *@返回值  
+ */
 
 public class SystemConfigServiceImpl  implements SystemConfigService
 {

@@ -39,7 +39,8 @@
 
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
    <!-- TODO:配置扫描包路径 ，如果扫描多个包路径，中间使用半角逗号分隔 yycg.base.dao.mapper -->
-   <property name="basePackage" value="yycg.base.dao.mapper"/>
+    <!-- 如果要扫描多个包中间用逗号或者分号分隔，可以使用通配符-->
+    <property name="basePackage" value="yycg.**.dao.mapper"/>
     <!-- TODO:配置SqlSessionFactory -->
     <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 </bean>

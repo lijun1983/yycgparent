@@ -46,13 +46,12 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring/springmvc.xml</param-value>
 		</init-param>
-		<!-- 屏蔽springmvc自动注册的异常处理器 用自定的导常类 yycg/base/process/exception/ExceptionResolverCustom.java  -->
 
+		<!-- 屏蔽springmvc自动注册的异常处理器 用自定的导常类 yycg/base/process/exception/ExceptionResolverCustom.java  -->
 		<init-param>
 			<param-name>detectAllHandlerExceptionResolvers</param-name>
 			<param-value>false</param-value>
 		</init-param>
-
 		 <load-on-startup>1</load-on-startup>
 	</servlet>
 	<!--站点地址的后缀  http://localhost:8080/first.action#   -->
