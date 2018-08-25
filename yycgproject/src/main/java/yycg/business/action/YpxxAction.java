@@ -26,22 +26,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- * <p>
- * Title: YpxxAction
- * </p>
- * <p>
- * Description:药品目录
- * </p>
- * <p>
- * Company: www.itcast.com
- * </p>
- * 
- * @author 苗润土
- * @date 2014年11月29日下午3:25:41
- * @version 1.0
- */
+
 /**
  *@创建人  lijun
  *@创建时间  2018/8/25 0025 下午 10:43
@@ -82,7 +67,7 @@ public class YpxxAction {
 
 		//TODO 药品类别   数字字典表
 		List<Dictinfo> yplblist = systemConfigService.findDictinfoByType("001"); 
-		
+
 		//TODO:交易状态   数字字典表
 		List<Dictinfo> jyztlist = systemConfigService.findDictinfoByType("003");
 		
@@ -203,6 +188,7 @@ public class YpxxAction {
 	 * TODO:   spring/applicationContext-business-service.xml:19       id="ypxxImportService"
 	 *@返回值  yycg.base.process.result.SubmitResultInfo
 	 */
+
 	@RequestMapping("/importypxxsubmit")
 	public @ResponseBody SubmitResultInfo importypxxsubmit(MultipartFile ypxximportfile)throws Exception{
 

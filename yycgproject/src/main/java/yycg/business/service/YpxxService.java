@@ -17,5 +17,4 @@ public interface YpxxService
 	 */
 	public List<YpxxCustom> findYpxxList(YpxxQueryVo ypxxQueryVo)throws Exception;
 
-
 }
