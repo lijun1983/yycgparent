@@ -134,6 +134,7 @@ $(document).ready(function(){
 			<DIV class="cen_con">
 				<IMG alt="" src="${baseurl}images/login/bg2.png">
 				<p style="color: red;">这需要点击刷新才出验证码 BUG   </TR> 需要开启虚拟机 oracle 才可以登陆成功</p>
+				<p style="color: red;">用户： xyswsj  密码 111</p>
 			</DIV>
 
 			<DIV class="tab_con">
