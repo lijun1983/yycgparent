@@ -133,6 +133,7 @@ $(document).ready(function(){
 
 			<DIV class="cen_con">
 				<IMG alt="" src="${baseurl}images/login/bg2.png">
+				<p style="color: red;">这需要点击刷新才出验证码 BUG   </TR> 需要开启虚拟机 oracle 才可以登陆成功</p>
 			</DIV>
 
 			<DIV class="tab_con">
@@ -155,14 +156,16 @@ $(document).ready(function(){
 							<TD><input id="randomcode" name="validateCode" size="8" /> <img
 								id="randomcode_img" src="/alidatecode.jsp" alt=""
 								width="56" height="20" align='absMiddle' /> <a
-								href=javascript:randomcode_refresh()>刷新</a></TD>这需要点击刷新才出验证码 BUG
+									href=javascript:randomcode_refresh()>刷新</a></TD>
 						</TR>
 
 						<TR>
 							<TD colSpan="2" align="center"><input type="button"
 								class="btnalink" onclick="loginsubmit()" value="登&nbsp;&nbsp;录" />
 								<input type="reset" class="btnalink" value="重&nbsp;&nbsp;置" /></TD>
+
 						</TR>
+
 					</TBODY>
 				</TABLE>
 
