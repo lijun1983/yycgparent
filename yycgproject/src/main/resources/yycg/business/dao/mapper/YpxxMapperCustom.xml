@@ -18,6 +18,15 @@
 			<if test="ypxxCustom.lb!=null and ypxxCustom.lb!=''">
 			  and ypxx.lb = #{ypxxCustom.lb}
 			</if>
+			<!-- 价格范围 -->
+			<if test="ypxxCustom.price_start!=null">
+				and ypxx.price>=#{ypxxCustom.price_start}
+			</if>
+			<if test="ypxxCustom.price_end!=null">
+				<![CDATA[
+			  and ypxx.price<=#{ypxxCustom.price_end}
+			  ]]>
+			</if>
 			<!-- ...... -->
 		</if>
 	</sql>

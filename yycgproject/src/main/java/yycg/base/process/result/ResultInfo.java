@@ -63,7 +63,7 @@ public class ResultInfo
 	
     /**
      * 构造函数,根据提交信息代码messageCode获取提示信息
-     * @param MESSAGE
+     * @param message
      */
     public ResultInfo(final int type,int messageCode,String message){
     	this.type = type;

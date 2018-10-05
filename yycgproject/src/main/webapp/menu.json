@@ -3,11 +3,14 @@
                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "用户管理","url" : "/user/queryuser.action"
                  }] 
                },
-               {"icon" : "icon-sys","menuid" : "1","menuname" : "药品目录","url" : "","menus" : [
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "药品目录导出-导入","url" : "","menus" : [
                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导出","url" : "/ypml/exportYpxx.action"
                  },{"icon" : "icon-log","menuid" : "1_1","menuname" : "药品目录导 入","url" : "/ypml/importypxx.action"
-                 },{"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商药品目录维护","url" : "/ypml/querygysypml.action"
-                 }] 
+                 }]
+               },
+               {"icon" : "icon-sys","menuid" : "1","menuname" : "供货商药品目录","url" : "","menus" : [
+                 {"icon" : "icon-log","menuid" : "1_1","menuname" : "供货商药品目录维护","url" : "/ypml/querygysypml.action"
+                 }]
                },
                {"icon" : "icon-sys","menuid" : "1","menuname" : "采购单管理","url" : "","menus" : [
                  {"icon" : "icon-log","menuid" : "1_1","menuname" : "创建采购单","url" : "/yycgproject/cgd/addcgd.action"

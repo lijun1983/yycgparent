@@ -59,7 +59,7 @@ function ypxxinfo(id){
 }
 var gysypmladd = function (){
 	//alert(id);
-	var sendUrl = "${baseurl}ypml/querygysypmladd.action";
+	var sendUrl = "${baseurl}ypml/queryaddgysypml.action";//TODO: 供货药品添加  yycg/business/action/YpmlAction.java:115
 	createmodalwindow("供货药品添加", 1000, 500, sendUrl);
 	
 };
@@ -82,10 +82,10 @@ var toolbar = [ {
 var frozenColumns;
 
 var columns = [ [{
-	checkbox:true
+	checkbox:true //显示一个复选框
 },{
 	field : 'id',
-	hidden : true,//隐藏
+	hidden : true,//该列隐藏
 	formatter: function(value,row,index){
 		//gysypmls对应action接收对象中list的名称，[]括号中是从0开始序号,id是list中对象属性
 		return '<input type="hidden" name="gysypmlControls['+index+'].ypxxid" value="'+value+'" />';
@@ -148,28 +148,23 @@ var columns = [ [{
 function initGrid(){
 	$('#gysypmllist').datagrid({
 		title : '供应药品列表',
-		//nowrap : false,
+        fitColumns:true,//宽度自适应
 		striped : true,
-		//collapsible : true,
 		url : '${baseurl}ypml/querygysypml_result.action',
-		//sortName : 'code',
-		//sortOrder : 'desc',
-		//remoteSort : false,
 		idField : 'gysypmlid',//json数据集的主键
-		//frozenColumns : frozenColumns,
 		columns : columns,
 		pagination : true,
 		rownumbers : true,
 		toolbar : toolbar,
 		loadMsg:"",
-		pageList:[15,30,50,100]/* ,//设置每页显示个数
-		onClickRow : function(index, field, value) {
+		pageList:[5,10,15,30,50,100] ,//设置每页显示个数
+		onClickRow : function(index, field, value) {//点击行时触发事件，取消该行的选择
 					$('#gysypmllist').datagrid('unselectRow', index);
-				},
-		//将加载成功后执行：清除选中的行
+				}/* ,
+		//将加载成功后执行：清除所有选中的行
 		onLoadSuccess:function(){
 			$('#gysypmllist').datagrid('clearSelections');
-		} */
+		}  */
 		});
 
 	}
@@ -189,7 +184,7 @@ function initGrid(){
 		var formdata = $("#gysypmldeleteForm").serializeJson();
 		//alert(formdata);
 		//取消所有datagrid中的选择
-		$('#gysypmllist').datagrid('unselectAll');
+		//$('#gysypmllist').datagrid('unselectAll');
 		//json是datagrid需要格式数据，向服务器发送的是key/value
 		$('#gysypmllist').datagrid('load', formdata);
 	}

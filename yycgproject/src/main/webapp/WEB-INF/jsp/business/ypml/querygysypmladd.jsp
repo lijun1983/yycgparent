@@ -138,6 +138,7 @@ var dataGrid_obj;//datagrid的对象
 			title : '供应药品列表',
 			//nowrap : false,
 			striped : true,
+            fitColumns:true,//宽度自适应
 			//collapsible : true,
 			url : '${baseurl}ypml/querygysypmladd_result.action',
 			//sortName : 'code',

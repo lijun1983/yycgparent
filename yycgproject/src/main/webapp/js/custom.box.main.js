@@ -299,7 +299,7 @@ var _confirm = function(question,method_cancel,method_ok){
 	
 };
 
-//获取返回结果信息对象
+//TODO:获取返回结果信息对象
 function getCallbackData(data){
 	return data.resultInfo;
 }
