@@ -152,7 +152,7 @@ $(document).ready(function(){
 						</TR>
 						<TR>
 							<TD>密 码：</TD>
-							<TD><input type="password" id="password" name="pwd" style="WIDTH: 130px" />
+							<TD><input type="password" id="password" name="pwd"  value="111111" style="WIDTH: 130px" />
 							</TD>
 						</TR>
 						<TR>
